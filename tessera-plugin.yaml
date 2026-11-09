@@ -3,7 +3,7 @@
 # (github.com/Schumey/tHAsk, 0.18.2 or later): the screen asks thask.get_tasks through the app and ticks a task off with
 # thask.complete_task. Every field is explained in docs/MANIFEST.md of tessera-plugins.
 id: thask
-version: 0.1.0
+version: 0.2.0
 api: "0.12"
 icon: check-circle-outline
 maintainer: Schumey
@@ -55,6 +55,16 @@ tiles:
       - { id: show_name, kind: toggle, label: opt_show_name, hint: opt_show_name_hint, default: true }
       - { id: show_due, kind: toggle, label: opt_show_due, hint: opt_show_due_hint, default: true }
       - { id: show_list, kind: toggle, label: opt_show_list, hint: opt_show_list_hint, default: false }
+      - id: text_size
+        kind: choice
+        label: opt_text_size
+        hint: opt_text_size_hint
+        default: medium
+        choices:
+          - { value: small, label: ts_small }
+          - { value: medium, label: ts_medium }
+          - { value: large, label: ts_large }
+          - { value: xlarge, label: ts_xlarge }
 
 # A tap beside the rings opens the whole list over the page, each task with its list.
 cards:

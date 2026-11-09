@@ -34,6 +34,12 @@
     "bar_count": "Offene Aufgaben",
     "bar_example": "4",
     "input_bar_list": "Liste für die obere Leiste",
-    "input_bar_list_hint": "Die tHAsk-Liste oder intelligente Liste, deren offene Aufgaben die obere Leiste zählt, z. B. tHAsk Heute."
+    "input_bar_list_hint": "Die tHAsk-Liste oder intelligente Liste, deren offene Aufgaben die obere Leiste zählt, z. B. tHAsk Heute.",
+    "opt_text_size": "Schriftgröße",
+    "opt_text_size_hint": "Wie groß Titel und Fälligkeiten sind. Größere Schrift lässt weniger Aufgaben auf die Kachel; die Karte über der Seite nimmt dieselbe Größe.",
+    "ts_small": "Klein",
+    "ts_medium": "Mittel",
+    "ts_large": "Groß",
+    "ts_xlarge": "Sehr groß"
   }
 }

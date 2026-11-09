@@ -34,6 +34,12 @@
     "bar_count": "Open taken",
     "bar_example": "4",
     "input_bar_list": "Lijst voor de bovenbalk",
-    "input_bar_list_hint": "De tHAsk-lijst of slimme lijst waarvan de bovenbalk de open taken telt, zoals tHAsk Vandaag."
+    "input_bar_list_hint": "De tHAsk-lijst of slimme lijst waarvan de bovenbalk de open taken telt, zoals tHAsk Vandaag.",
+    "opt_text_size": "Tekstgrootte",
+    "opt_text_size_hint": "Hoe groot de titels en vervaldata zijn. Grotere tekst laat minder taken op de tegel; de kaart over de pagina neemt dezelfde grootte.",
+    "ts_small": "Klein",
+    "ts_medium": "Middel",
+    "ts_large": "Groot",
+    "ts_xlarge": "Heel groot"
   }
 }

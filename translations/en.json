@@ -34,6 +34,12 @@
     "bar_count": "Open tasks",
     "bar_example": "4",
     "input_bar_list": "List for the top bar",
-    "input_bar_list_hint": "The tHAsk list or smart list whose open tasks the top bar counts, such as tHAsk Today."
+    "input_bar_list_hint": "The tHAsk list or smart list whose open tasks the top bar counts, such as tHAsk Today.",
+    "opt_text_size": "Text size",
+    "opt_text_size_hint": "How large the titles and due dates are. Larger text fits fewer tasks on the tile; the card over the page takes the same size.",
+    "ts_small": "Small",
+    "ts_medium": "Medium",
+    "ts_large": "Large",
+    "ts_xlarge": "Very large"
   }
 }

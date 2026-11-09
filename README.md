@@ -10,6 +10,7 @@ Important, ...) with the fuzzy due dates tHAsk knows ("KW 46", "November", "Q1")
   1x1 tile shows the count large.
 - **Tap the ring** to tick a task off; tap it again while it still shows to open it again. A recurring task gets its
   next date, as in tHAsk.
+- **Text size** (tile option): small, medium, large or very large; larger text fits fewer tasks.
 - **Tap anywhere else** to open the whole list over the page, each task with its list.
 - **Top bar**: how many tasks of one list are open (Today by default), the icon red while one is overdue.
 

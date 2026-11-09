@@ -57,6 +57,19 @@ static std::string list_name(const char *name) {
 
 // ---- The rows: what a tile and a card share ----
 
+// The fonts of a row, by the tile's option Text size: the title, the due date, the list under the title, and the
+// tile's head (its name and count).
+struct Faces {
+  Font title, due, list, head;
+};
+
+static Faces faces_of(const char *size) {
+  if (strcmp(size, "small") == 0) return {Font::BODY, Font::BODY, Font::BODY, Font::TITLE};
+  if (strcmp(size, "large") == 0) return {Font::HEADLINE, Font::BODY_LARGE, Font::BODY, Font::HEADLINE};
+  if (strcmp(size, "xlarge") == 0) return {Font::VALUE, Font::BODY_LARGE, Font::BODY_LARGE, Font::HEADLINE};
+  return {Font::BODY_LARGE, Font::BODY, Font::BODY, Font::TITLE};
+}
+
 struct Row {
   char id[36];
   char title[52];
@@ -77,12 +90,14 @@ class TaskView : public tessera::InPsram {
   // The parts, once: up to `most` rows from the top of the room, each a ring, a title, the due date on the right and
   // with `detail` the list under the title. With `fill` the rows share the room's height (a tile), else they stand
   // from the top (a card).
-  void create(lv_obj_t *parent, int x, int y, int width, int height, int most, bool detail, bool due, bool fill) {
+  void create(lv_obj_t *parent, int x, int y, int width, int height, int most, bool detail, bool due, bool fill,
+              Faces faces) {
     x_ = x;
     y_ = y;
     width_ = width;
     show_due_ = due;
-    const int line = ui::line_height(Font::BODY_LARGE), second = detail ? ui::line_height(Font::BODY) : 0;
+    faces_ = faces;
+    const int line = ui::line_height(faces.title), second = detail ? ui::line_height(faces.list) : 0;
     row_h_ = std::max(line + second + ui::px(10), ui::mm(7));
     ring_ = std::max(ui::px(14), line - ui::px(4));
     text_x_ = ring_ + ui::px(ui::large() ? 12 : 8);
@@ -96,12 +111,12 @@ class TaskView : public tessera::InPsram {
       lv_obj_set_style_radius(p.ring, LV_RADIUS_CIRCLE, 0);
       lv_obj_set_style_border_width(p.ring, std::max(2, ui::px(2)), 0);
       lv_obj_set_pos(p.ring, x, top + (line - ring_) / 2);
-      p.title = ui::label(parent, Font::BODY_LARGE, theme::INK);
+      p.title = ui::label(parent, faces.title, theme::INK);
       lv_obj_set_pos(p.title, x + text_x_, top);
-      p.due = ui::label(parent, Font::BODY, theme::MUTED);
-      lv_obj_set_pos(p.due, x + width, top + (line - ui::line_height(Font::BODY)) / 2);
+      p.due = ui::label(parent, faces.due, theme::MUTED);
+      lv_obj_set_pos(p.due, x + width, top + (line - ui::line_height(faces.due)) / 2);
       if (detail) {
-        p.list = ui::label(parent, Font::BODY, theme::MUTED);
+        p.list = ui::label(parent, faces.list, theme::MUTED);
         lv_obj_set_pos(p.list, x + text_x_, top + line);
         lv_obj_set_width(p.list, std::max(1, width - text_x_));
       }
@@ -269,7 +284,7 @@ class TaskView : public tessera::InPsram {
     lv_obj_set_style_bg_opa(p.ring, r.done ? LV_OPA_COVER : LV_OPA_TRANSP, 0);
     // On a narrow tile the title goes first: the due date only when the title keeps half the row.
     const int room = width_ - text_x_;
-    int due_w = r.due[0] ? ui::text_width(r.due, Font::BODY) + ui::px(2) : 0;
+    int due_w = r.due[0] ? ui::text_width(r.due, faces_.due) + ui::px(2) : 0;
     if (due_w && room - due_w - ui::px(8) < room / 2) due_w = 0;
     lv_obj_set_width(p.due, std::max(1, due_w));
     lv_obj_set_x(p.due, x_ + width_ - due_w);
@@ -291,6 +306,7 @@ class TaskView : public tessera::InPsram {
   int count_ = 0, total_ = 0, fits_ = 0;
   int x_ = 0, y_ = 0, width_ = 0, row_h_ = 1, ring_ = 0, text_x_ = 0;
   bool show_due_ = true, answered_ = false;
+  Faces faces_ = faces_of("medium");
   uint32_t asked_ = 0, next_ = 0;
 };
 
@@ -318,18 +334,20 @@ class TasksTile : public tessera::Tile {
     name_ = roomy::text(list_name(c.name));
     copy(c.options["view"] | "auto", view_name_, sizeof(view_name_));
     const bool show_name = c.options["show_name"] | true;
+    copy(c.options["text_size"] | "medium", size_name_, sizeof(size_name_));
+    faces_ = faces_of(size_name_);
     width_ = c.width;
     height_ = c.height;
     view_->follow(c.entity, view_name_);
 
-    const int head = show_name ? ui::line_height(Font::TITLE) + ui::px(6) : 0;
-    count_ = ui::label(c.parent, Font::TITLE, theme::MUTED);
+    const int head = show_name ? ui::line_height(faces_.head) + ui::px(6) : 0;
+    count_ = ui::label(c.parent, faces_.head, theme::MUTED);
     if (show_name) {
-      name_label_ = ui::label(c.parent, Font::TITLE, theme::INK);
+      name_label_ = ui::label(c.parent, faces_.head, theme::INK);
       lv_obj_set_pos(name_label_, 0, 0);
     }
     view_->create(c.parent, 0, head, width_, height_ - head, TILE_ROWS, c.options["show_list"] | false,
-                  c.options["show_due"] | true, true);
+                  c.options["show_due"] | true, true, faces_);
     // A tile too small for a row shows the count large, with the name under it.
     small_ = view_->fits() == 0;
     if (small_) {
@@ -383,6 +401,7 @@ class TasksTile : public tessera::Tile {
     const tessera::Point p = tessera::tap_point();
     if (!small_ && view_->tap(p.x, p.y)) return;
     copy(view_name_, plugin_->card_view, sizeof(plugin_->card_view));
+    copy(size_name_, plugin_->card_size, sizeof(plugin_->card_size));
     tessera::open_card(plugin_->plugin_id(), "list", roomy::plain(entity_), tile_, roomy::plain(name_).c_str());
   }
 
@@ -402,8 +421,8 @@ class TasksTile : public tessera::Tile {
       ui::set_text(count_, view_->has_entity() ? text : "");
       if (name_label_) ui::set_text(name_label_, roomy::plain(name_));
     } else {
-      const int cw = text.empty() ? 0 : ui::text_width(text, Font::TITLE) + ui::px(2);
-      lv_obj_set_size(count_, std::max(1, cw), ui::line_height(Font::TITLE));
+      const int cw = text.empty() ? 0 : ui::text_width(text, faces_.head) + ui::px(2);
+      lv_obj_set_size(count_, std::max(1, cw), ui::line_height(faces_.head));
       lv_obj_set_pos(count_, width_ - cw, 0);
       ui::set_text(count_, text);
       if (name_label_) {
@@ -416,7 +435,8 @@ class TasksTile : public tessera::Tile {
   Thask *plugin_;
   TaskView *view_;
   tessera::Text entity_, name_, state_, shown_;
-  char view_name_[16] = "auto";
+  char view_name_[16] = "auto", size_name_[8] = "medium";
+  Faces faces_ = faces_of("medium");
   lv_obj_t *count_{}, *name_label_{};
   int width_ = 0, height_ = 0, tile_ = -1, open_ = 0, overdue_ = 0;
   bool small_ = false, known_ = false, asked_once_ = false, laid_ = false;
@@ -431,7 +451,7 @@ class ListCard : public tessera::Card {
 
   void open(const tessera::CardContext &c) override {
     view_->follow(c.entity, plugin_->card_view);
-    view_->create(c.parent, 0, 0, c.width, c.height, CARD_ROWS, true, true, false);
+    view_->create(c.parent, 0, 0, c.width, c.height, CARD_ROWS, true, true, false, faces_of(plugin_->card_size));
     view_->ask();
   }
 

@@ -10,6 +10,18 @@ tiles:
     options: { show_list: true }
     sizes: [2x2, 3x2, 4x3]
 
+  # 1b. The larger text sizes
+  - tile: tasks
+    name: Large
+    entity: todo.thask_mein_tag
+    options: { text_size: large }
+    sizes: [1x2, 2x2]
+  - tile: tasks
+    name: Very large
+    entity: todo.thask_mein_tag
+    options: { text_size: xlarge }
+    sizes: [1x2, 2x2]
+
   # 2. The defaults at every size the tile offers (1x1 shows the count large)
   - tile: tasks
     name: Zuhause

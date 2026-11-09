@@ -11,6 +11,7 @@ intelligente Ansicht (Heute, Diese Woche, Wichtig …) mit den unscharfen Fälli
   rot wenn überfällig. Eine 1x1-Kachel zeigt die Anzahl groß.
 - **Tipp auf den Kreis** hakt die Aufgabe ab; ein zweiter Tipp, solange sie noch zu sehen ist, öffnet sie wieder. Eine
   wiederkehrende Aufgabe bekommt ihren nächsten Termin, wie in tHAsk.
+- **Schriftgröße** (Option der Kachel): klein, mittel, groß oder sehr groß; größere Schrift lässt weniger Aufgaben zu.
 - **Tipp daneben** öffnet die ganze Liste über der Seite, jede Aufgabe mit ihrer Liste.
 - **Obere Leiste**: wie viele Aufgaben einer Liste offen sind (standardmäßig Heute), das Symbol rot, solange eine
   überfällig ist.

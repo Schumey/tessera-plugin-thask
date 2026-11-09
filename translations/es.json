@@ -34,6 +34,12 @@
     "bar_count": "Tareas abiertas",
     "bar_example": "4",
     "input_bar_list": "Lista para la barra superior",
-    "input_bar_list_hint": "La lista de tHAsk o lista inteligente cuyas tareas abiertas cuenta la barra superior, p. ej. tHAsk Hoy."
+    "input_bar_list_hint": "La lista de tHAsk o lista inteligente cuyas tareas abiertas cuenta la barra superior, p. ej. tHAsk Hoy.",
+    "opt_text_size": "Tamaño del texto",
+    "opt_text_size_hint": "Lo grandes que son los títulos y los vencimientos. Un texto más grande deja menos tareas en el mosaico; la tarjeta sobre la página toma el mismo tamaño.",
+    "ts_small": "Pequeño",
+    "ts_medium": "Mediano",
+    "ts_large": "Grande",
+    "ts_xlarge": "Muy grande"
   }
 }

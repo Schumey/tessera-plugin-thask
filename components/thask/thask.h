@@ -23,8 +23,9 @@ class Thask : public Component, public tessera::Plugin {
   void listen(TaskView *view);
   void forget(TaskView *view);
 
-  // What the card shows: the view of the tile it was opened from, handed over as the tile opens it.
+  // What the card shows: the view and the text size of the tile it was opened from, handed over as the tile opens it.
   char card_view[16] = "auto";
+  char card_size[8] = "medium";
 
  protected:
   tessera::BarItem bar() const;

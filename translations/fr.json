@@ -34,6 +34,12 @@
     "bar_count": "Tâches ouvertes",
     "bar_example": "4",
     "input_bar_list": "Liste pour la barre du haut",
-    "input_bar_list_hint": "La liste tHAsk ou liste intelligente dont la barre du haut compte les tâches ouvertes, p. ex. tHAsk Aujourd’hui."
+    "input_bar_list_hint": "La liste tHAsk ou liste intelligente dont la barre du haut compte les tâches ouvertes, p. ex. tHAsk Aujourd’hui.",
+    "opt_text_size": "Taille du texte",
+    "opt_text_size_hint": "La taille des titres et des échéances. Un texte plus grand laisse moins de tâches sur la tuile ; la carte au-dessus de la page prend la même taille.",
+    "ts_small": "Petite",
+    "ts_medium": "Moyenne",
+    "ts_large": "Grande",
+    "ts_xlarge": "Très grande"
   }
 }
