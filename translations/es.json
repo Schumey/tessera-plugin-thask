@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "Español"
+  },
+  "screen": {
+    "waiting": "Preguntando a tHAsk",
+    "failed": "Sin respuesta de tHAsk",
+    "choose_list": "Elige una lista de tHAsk",
+    "all_done": "Todo hecho",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "yesterday": "Ayer"
+  },
+  "app": {
+    "name": "tHAsk",
+    "summary": "Tus tareas de tHAsk con sus vencimientos difusos, marcadas con un toque.",
+    "tile_name": "Tareas",
+    "tile_example": "Impuestos · semana 47",
+    "opt_view": "Vista",
+    "opt_view_hint": "Qué tareas: todas las de la lista (en una lista inteligente, su propia vista), o una de las vistas inteligentes de tHAsk.",
+    "view_auto": "La de la lista",
+    "view_my_day": "Hoy",
+    "view_overdue": "Vencidas",
+    "view_this_week": "Esta semana",
+    "view_this_month": "Este mes",
+    "view_important": "Importante",
+    "opt_show_name": "Nombre y número",
+    "opt_show_name_hint": "El nombre de la lista sobre las tareas, y cuántas hay.",
+    "opt_show_due": "Vencimientos",
+    "opt_show_due_hint": "Cuándo vence cada tarea, a la derecha: Hoy, Mañana, semana 46, noviembre.",
+    "opt_show_list": "Lista de cada tarea",
+    "opt_show_list_hint": "Bajo cada título, la lista en la que está: útil en una vista inteligente.",
+    "card_name": "Todas las tareas",
+    "bar_count": "Tareas abiertas",
+    "bar_example": "4",
+    "input_bar_list": "Lista para la barra superior",
+    "input_bar_list_hint": "La lista de tHAsk o lista inteligente cuyas tareas abiertas cuenta la barra superior, p. ej. tHAsk Hoy."
+  }
+}

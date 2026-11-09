@@ -1,0 +1,45 @@
+# What tools/preview.py shows: the tiles with tasks as tHAsk answers them (thask.get_tasks with compact: true), on
+# every kind of screen (docs/PREVIEW.md of tessera-plugins). The first example is the one the store picture shows.
+# The bench gives every question the same answer, whichever list a tile follows.
+
+tiles:
+  # 1. Today, with the list of each task: the look of the store picture
+  - tile: tasks
+    name: Heute
+    entity: todo.thask_mein_tag
+    options: { show_list: true }
+    sizes: [2x2, 3x2, 4x3]
+
+  # 2. The defaults at every size the tile offers (1x1 shows the count large)
+  - tile: tasks
+    name: Zuhause
+    entity: todo.thask_zuhause
+
+  # 3. Without the name and the due dates
+  - tile: tasks
+    name: Plain
+    entity: todo.thask_zuhause
+    options: { show_name: false, show_due: false }
+    sizes: [2x2]
+
+states:
+  todo.thask_mein_tag:
+    state: "6"
+    attributes: { friendly_name: tHAsk Heute, overdue: 1, due_today: 3 }
+  todo.thask_zuhause:
+    state: "30"
+    attributes: { friendly_name: "tHAsk 🏡 Zuhause", overdue: 1, due_today: 2 }
+
+commands:
+  "call_service:thask.get_tasks":
+    total: 6
+    tasks:
+      - { id: 1a2b3c4d5e6f40718293a4b5c6d7e8f9, title: Rechnungen ablegen, priority: 2, list: "🏡 Zuhause", due_label: Fr 7. Nov, due_kind: day, due_days: -2 }
+      - { id: 2b3c4d5e6f40718293a4b5c6d7e8f901, title: Zahnarzt anrufen, priority: 3, list: Firma, due_label: So 9. Nov, due_kind: day, due_days: 0, due_time: "09:30" }
+      - { id: 3c4d5e6f40718293a4b5c6d7e8f90112, title: Blumen gießen, priority: 0, list: "🏡 Zuhause", due_label: So 9. Nov, due_kind: day, due_days: 0 }
+      - { id: 4d5e6f40718293a4b5c6d7e8f9011223, title: Reifen wechseln, priority: 1, list: "🚗 Golf", due_label: KW 45, due_kind: week, due_days: 0 }
+      - { id: 5e6f40718293a4b5c6d7e8f901122334, title: Steuererklärung abgeben, priority: 3, list: Firma, due_label: KW 46, due_kind: week, due_days: 7 }
+      - { id: 6f40718293a4b5c6d7e8f90112233445, title: Wunschzettel schreiben, priority: 0, list: Wunschzettel 2026, due_label: November, due_kind: month, due_days: 21 }
+
+cards:
+  - { card: list, entity: todo.thask_mein_tag }

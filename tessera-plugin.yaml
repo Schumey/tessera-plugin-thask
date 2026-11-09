@@ -1,0 +1,64 @@
+# tHAsk on a Tessera screen: the tasks of a tHAsk list or smart view (Today, This week, ...) with their fuzzy due
+# dates ("KW 46", "November"), ticked off with a tap. The data comes from the tHAsk integration in Home Assistant
+# (github.com/Schumey/tHAsk, 0.18.2 or later): the screen asks thask.get_tasks through the app and ticks a task off with
+# thask.complete_task. Every field is explained in docs/MANIFEST.md of tessera-plugins.
+id: thask
+version: 0.1.0
+api: "0.12"
+icon: check-circle-outline
+maintainer: Schumey
+license: MIT
+stage: beta
+topics: [home, calendar]
+requires:
+  esphome: 2026.6.2
+boards: any
+flash_kb: 14
+
+permissions:
+  # The tasks of the tile's list or view, asked by the app on the screen's behalf.
+  ha_commands: ["call_service:thask.get_tasks"]
+  # A tap on a task's ring ticks it off; a second tap while it still shows opens it again.
+  home_assistant_actions: [thask.complete_task]
+  # The list whose open tasks the top bar counts (plugin.yaml reads it).
+  read_entities: ["{bar_list}"]
+
+inputs:
+  - { id: bar_list, kind: entity, domains: [todo], scope: screen, label: input_bar_list, hint: input_bar_list_hint }
+
+tiles:
+  - id: tasks
+    name: tile_name
+    icon: check-circle-outline
+    sizes: { min: 1x1, max: 4x4 }
+    # Up to twelve rows of a ring, a title, a due date and a line for the list (four labels or blocks each), the
+    # name and the count, a word while it waits, and the rows' data (about 170 bytes each).
+    memory: 8400
+    domains: [todo]
+    # tHAsk's own counts of the list, for the count before the tasks are there and the count's colour.
+    attributes: [overdue, due_today]
+    example: tile_example
+    preview: { title: "{name}", value: "{state}" }
+    options:
+      - id: view
+        kind: choice
+        label: opt_view
+        hint: opt_view_hint
+        default: auto
+        choices:
+          - { value: auto, label: view_auto }
+          - { value: my_day, label: view_my_day }
+          - { value: overdue, label: view_overdue }
+          - { value: this_week, label: view_this_week }
+          - { value: this_month, label: view_this_month }
+          - { value: important, label: view_important }
+      - { id: show_name, kind: toggle, label: opt_show_name, hint: opt_show_name_hint, default: true }
+      - { id: show_due, kind: toggle, label: opt_show_due, hint: opt_show_due_hint, default: true }
+      - { id: show_list, kind: toggle, label: opt_show_list, hint: opt_show_list_hint, default: false }
+
+# A tap beside the rings opens the whole list over the page, each task with its list.
+cards:
+  - { id: list, name: card_name }
+
+bar_items:
+  - { id: count, label: bar_count, icon: check-circle-outline, example: bar_example }

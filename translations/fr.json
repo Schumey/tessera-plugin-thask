@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "Français"
+  },
+  "screen": {
+    "waiting": "Demande à tHAsk",
+    "failed": "Pas de réponse de tHAsk",
+    "choose_list": "Choisir une liste tHAsk",
+    "all_done": "Tout est fait",
+    "today": "Aujourd’hui",
+    "tomorrow": "Demain",
+    "yesterday": "Hier"
+  },
+  "app": {
+    "name": "tHAsk",
+    "summary": "Vos tâches tHAsk avec leurs échéances floues, cochées d’un geste.",
+    "tile_name": "Tâches",
+    "tile_example": "Impôts · semaine 47",
+    "opt_view": "Vue",
+    "opt_view_hint": "Quelles tâches : toutes celles de la liste (pour une liste intelligente, sa propre vue), ou l’une des vues intelligentes de tHAsk.",
+    "view_auto": "Celle de la liste",
+    "view_my_day": "Aujourd’hui",
+    "view_overdue": "En retard",
+    "view_this_week": "Cette semaine",
+    "view_this_month": "Ce mois-ci",
+    "view_important": "Important",
+    "opt_show_name": "Nom et nombre",
+    "opt_show_name_hint": "Le nom de la liste au-dessus des tâches, et leur nombre.",
+    "opt_show_due": "Échéances",
+    "opt_show_due_hint": "Quand chaque tâche est due, à droite : Aujourd’hui, Demain, semaine 46, novembre.",
+    "opt_show_list": "Liste de chaque tâche",
+    "opt_show_list_hint": "Sous chaque titre, la liste où elle se trouve : utile dans une vue intelligente.",
+    "card_name": "Toutes les tâches",
+    "bar_count": "Tâches ouvertes",
+    "bar_example": "4",
+    "input_bar_list": "Liste pour la barre du haut",
+    "input_bar_list_hint": "La liste tHAsk ou liste intelligente dont la barre du haut compte les tâches ouvertes, p. ex. tHAsk Aujourd’hui."
+  }
+}

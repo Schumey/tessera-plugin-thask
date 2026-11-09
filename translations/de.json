@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "Deutsch"
+  },
+  "screen": {
+    "waiting": "Frage tHAsk",
+    "failed": "Keine Antwort von tHAsk",
+    "choose_list": "tHAsk-Liste wählen",
+    "all_done": "Alles erledigt",
+    "today": "Heute",
+    "tomorrow": "Morgen",
+    "yesterday": "Gestern"
+  },
+  "app": {
+    "name": "tHAsk",
+    "summary": "Deine tHAsk-Aufgaben mit unscharfen Fälligkeiten, abgehakt mit einem Tipp.",
+    "tile_name": "Aufgaben",
+    "tile_example": "Steuererklärung · KW 47",
+    "opt_view": "Ansicht",
+    "opt_view_hint": "Welche Aufgaben: alle der Liste (bei einer intelligenten Liste deren Ansicht) oder eine der intelligenten Ansichten von tHAsk.",
+    "view_auto": "Die der Liste",
+    "view_my_day": "Heute",
+    "view_overdue": "Überfällig",
+    "view_this_week": "Diese Woche",
+    "view_this_month": "Diesen Monat",
+    "view_important": "Wichtig",
+    "opt_show_name": "Name und Anzahl",
+    "opt_show_name_hint": "Der Name der Liste über den Aufgaben und wie viele es sind.",
+    "opt_show_due": "Fälligkeiten",
+    "opt_show_due_hint": "Wann jede Aufgabe fällig ist, rechts: Heute, Morgen, KW 46, November.",
+    "opt_show_list": "Liste jeder Aufgabe",
+    "opt_show_list_hint": "Unter jedem Titel die Liste, auf der sie steht: praktisch in einer intelligenten Ansicht.",
+    "card_name": "Alle Aufgaben",
+    "bar_count": "Offene Aufgaben",
+    "bar_example": "4",
+    "input_bar_list": "Liste für die obere Leiste",
+    "input_bar_list_hint": "Die tHAsk-Liste oder intelligente Liste, deren offene Aufgaben die obere Leiste zählt, z. B. tHAsk Heute."
+  }
+}

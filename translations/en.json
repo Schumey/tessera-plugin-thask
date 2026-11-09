@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "English"
+  },
+  "screen": {
+    "waiting": "Asking tHAsk",
+    "failed": "No answer from tHAsk",
+    "choose_list": "Choose a tHAsk list",
+    "all_done": "All done",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "yesterday": "Yesterday"
+  },
+  "app": {
+    "name": "tHAsk",
+    "summary": "Your tHAsk tasks with their fuzzy due dates, ticked off with a tap.",
+    "tile_name": "Tasks",
+    "tile_example": "Tax return · KW 47",
+    "opt_view": "View",
+    "opt_view_hint": "Which tasks: all of the list (a smart list: its own view), or one of tHAsk's smart views.",
+    "view_auto": "The list's own",
+    "view_my_day": "Today",
+    "view_overdue": "Overdue",
+    "view_this_week": "This week",
+    "view_this_month": "This month",
+    "view_important": "Important",
+    "opt_show_name": "Name and count",
+    "opt_show_name_hint": "The list's name over the tasks, and how many there are.",
+    "opt_show_due": "Due dates",
+    "opt_show_due_hint": "When each task is due, on the right: Today, Tomorrow, KW 46, November.",
+    "opt_show_list": "List of each task",
+    "opt_show_list_hint": "Under each title the list it is on: useful in a smart view.",
+    "card_name": "All tasks",
+    "bar_count": "Open tasks",
+    "bar_example": "4",
+    "input_bar_list": "List for the top bar",
+    "input_bar_list_hint": "The tHAsk list or smart list whose open tasks the top bar counts, such as tHAsk Today."
+  }
+}

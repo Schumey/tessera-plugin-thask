@@ -1,0 +1,22 @@
+# What a screen gets when it takes this plugin. Tessera includes this file from the screen's <name>.plugins.yaml with
+# BAR_LIST filled in (the input chosen when the plugin was added), and adds this plugin's components/ folder as an
+# ESPHome external component.
+defaults:
+  BAR_LIST: todo.thask_mein_tag
+
+# The list the top bar counts, straight from Home Assistant: its open tasks (the state of a todo entity) and how many of
+# them are overdue (tHAsk's attribute). An entity that does not exist only leaves the item away.
+sensor:
+  - platform: homeassistant
+    id: thask_bar_open
+    entity_id: ${BAR_LIST}
+    internal: true
+  - platform: homeassistant
+    id: thask_bar_overdue
+    entity_id: ${BAR_LIST}
+    attribute: overdue
+    internal: true
+
+thask:
+  open: thask_bar_open
+  overdue: thask_bar_overdue

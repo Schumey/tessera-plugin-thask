@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "Nederlands"
+  },
+  "screen": {
+    "waiting": "tHAsk wordt gevraagd",
+    "failed": "Geen antwoord van tHAsk",
+    "choose_list": "Kies een tHAsk-lijst",
+    "all_done": "Alles klaar",
+    "today": "Vandaag",
+    "tomorrow": "Morgen",
+    "yesterday": "Gisteren"
+  },
+  "app": {
+    "name": "tHAsk",
+    "summary": "Je tHAsk-taken met hun vage vervaldata, afgevinkt met een tik.",
+    "tile_name": "Taken",
+    "tile_example": "Belastingaangifte · week 47",
+    "opt_view": "Weergave",
+    "opt_view_hint": "Welke taken: alle van de lijst (bij een slimme lijst haar eigen weergave), of een van de slimme weergaven van tHAsk.",
+    "view_auto": "Die van de lijst",
+    "view_my_day": "Vandaag",
+    "view_overdue": "Te laat",
+    "view_this_week": "Deze week",
+    "view_this_month": "Deze maand",
+    "view_important": "Belangrijk",
+    "opt_show_name": "Naam en aantal",
+    "opt_show_name_hint": "De naam van de lijst boven de taken, en hoeveel het er zijn.",
+    "opt_show_due": "Vervaldata",
+    "opt_show_due_hint": "Wanneer elke taak moet, rechts: Vandaag, Morgen, week 46, november.",
+    "opt_show_list": "Lijst van elke taak",
+    "opt_show_list_hint": "Onder elke titel de lijst waarop ze staat: handig in een slimme weergave.",
+    "card_name": "Alle taken",
+    "bar_count": "Open taken",
+    "bar_example": "4",
+    "input_bar_list": "Lijst voor de bovenbalk",
+    "input_bar_list_hint": "De tHAsk-lijst of slimme lijst waarvan de bovenbalk de open taken telt, zoals tHAsk Vandaag."
+  }
+}
